@@ -1,11 +1,9 @@
 import Link from "next/link";
 import Image from "next/image";
 
-const galleryItems = Array.from({ length: 6 }, (_, i) => ({
-  id: i + 1,
-  label: `Œuvre n°${String(i + 1).padStart(2, "0")}`,
-  image: ["/images/oeuvre-01.jpeg", "/images/oeuvre-02.jpeg", "/images/oeuvre-03.jpeg", "/images/oeuvre-04.jpeg", "/images/oeuvre-05.jpeg", "/images/oeuvre-06.jpeg"][i] ?? null,
-}));
+import { works } from "@/data/works";
+
+const galleryItems = works.slice(0, 6);
 
 export default function Home() {
   return (
@@ -38,9 +36,14 @@ export default function Home() {
           vérité naît dans l&rsquo;émotion qu&rsquo;il éveille.&nbsp;»
         </blockquote>
 
-        {/* Tagline */}
-        <p className="small-caps text-or-moyen text-xs tracking-[0.18em] mt-6">
+        {/* Bloc texte */}
+        <h3 className="font-cormorant font-light text-lg tracking-[0.15em] text-brun mt-10 mb-4">
           Œuvres uniques signées GNM
+        </h3>
+        <p className="font-eb text-sm leading-[1.9] text-brun-clair text-center max-w-[480px]">
+          Chaque pot est une œuvre d&rsquo;art à part entière. Peints à la main
+          sur terre cuite, sans calque ni reproduction, ils sont par essence
+          uniques au monde — comme l&rsquo;est chaque personne qui les possède.
         </p>
       </section>
 
@@ -94,12 +97,16 @@ export default function Home() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {galleryItems.map((item) => (
-              <div key={item.id} className="flex flex-col items-center">
-                <div className="w-full aspect-square bg-placeholder border-[0.5px] border-or flex items-center justify-center relative overflow-hidden">
+              <Link
+                key={item.id}
+                href={`/creations/${item.id}`}
+                className="flex flex-col items-center group"
+              >
+                <div className="w-full aspect-square bg-placeholder border-[0.5px] border-or flex items-center justify-center relative overflow-hidden transition-opacity group-hover:opacity-90">
                   {item.image ? (
                     <Image
                       src={item.image}
-                      alt={item.label}
+                      alt={item.number}
                       fill
                       className="object-cover"
                     />
@@ -109,10 +116,10 @@ export default function Home() {
                     </span>
                   )}
                 </div>
-                <span className="small-caps text-brun-lien text-xs tracking-wide mt-3">
-                  {item.label}
+                <span className="small-caps text-brun-lien text-xs tracking-wide mt-3 group-hover:text-or-moyen transition-colors">
+                  {item.number}
                 </span>
-              </div>
+              </Link>
             ))}
           </div>
 
