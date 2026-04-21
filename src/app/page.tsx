@@ -1,101 +1,147 @@
+import Link from "next/link";
 import Image from "next/image";
+
+const galleryItems = Array.from({ length: 6 }, (_, i) => ({
+  id: i + 1,
+  label: `Œuvre n°${String(i + 1).padStart(2, "0")}`,
+  image: ["/images/oeuvre-01.jpeg", "/images/oeuvre-02.jpeg", "/images/oeuvre-03.jpeg", "/images/oeuvre-04.jpeg", "/images/oeuvre-05.jpeg", "/images/oeuvre-06.jpeg"][i] ?? null,
+}));
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <>
+      {/* ── Hero ── */}
+      <section className="bg-parchemin flex flex-col items-center py-16 md:py-24 px-6 border-b border-or">
+        {/* Monogramme */}
+        <h1 className="font-cormorant font-light text-[54px] tracking-[0.08em] text-brun leading-none">
+          GNM
+        </h1>
+        <span className="small-caps text-[10px] tracking-[0.28em] text-or-moyen mt-1">
+          La Galerie
+        </span>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+        {/* Image d'accueil */}
+        <div className="relative mt-10 mb-10 w-52 md:w-60">
+          <Image
+            src="/images/medallion.webp"
+            alt="Œuvre GNM — portrait peint sur terre cuite"
+            width={240}
+            height={300}
+            className="w-full h-auto"
+            priority
+          />
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+
+        {/* Citation */}
+        <blockquote className="max-w-lg text-center font-cormorant italic text-brun-clair text-lg leading-relaxed">
+          «&nbsp;L&rsquo;art est une âme offerte au regard de l&rsquo;autre, sa
+          vérité naît dans l&rsquo;émotion qu&rsquo;il éveille.&nbsp;»
+        </blockquote>
+
+        {/* Tagline */}
+        <p className="small-caps text-or-moyen text-xs tracking-[0.18em] mt-6">
+          Œuvres uniques signées GNM
+        </p>
+      </section>
+
+      {/* ── La Création ── */}
+      <section className="bg-parchemin py-16 md:py-20 px-6 md:px-16 lg:px-32">
+        <div className="max-w-3xl mx-auto">
+          <span className="small-caps text-or-moyen text-xs tracking-[0.22em] block mb-2">
+            Le processus
+          </span>
+          <h2 className="font-cormorant font-light text-[28px] text-brun mb-8">
+            La Création
+          </h2>
+
+          <div className="font-eb text-sm text-brun-clair leading-[1.95] space-y-5">
+            <p>
+              GNM sélectionne avec soin chaque pot en terre cuite selon la
+              qualité de son support. Portée par l&rsquo;inspiration du moment,
+              elle laisse naître ses compositions avec liberté, avant de les
+              confier au pot et de tracer au crayon, comme un secret murmuré à
+              la matière.
+            </p>
+            <p>
+              De ses mains, elle peint chaque pot avec la même ardeur
+              qu&rsquo;elle offrirait à une toile, geste après geste, comme si
+              chaque courbe était unique. Chaque centimètre de terre devient
+              territoire d&rsquo;expression. GNM habite la surface entière,
+              sans laisser le silence s&rsquo;installer. L&rsquo;œuvre se
+              dévoile à 360°, invitant le regard à voyager sans fin, et
+              offrant à son gardien le privilège de changer de monde,
+              simplement en tournant le pot.
+            </p>
+            <p>
+              Chaque œuvre reçoit enfin son dernier souffle&nbsp;; un vernis
+              marin posé avec patience, couche après couche, pour que la
+              beauté résiste au temps et s&rsquo;épanouisse aussi bien sous
+              la lumière d&rsquo;un salon qu&rsquo;à la caresse du vent.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Aperçu Galerie ── */}
+      <section className="bg-sable border-t border-or py-16 md:py-20 px-6 md:px-16 lg:px-32">
+        <div className="max-w-5xl mx-auto">
+          <span className="small-caps text-or-moyen text-xs tracking-[0.22em] block mb-2">
+            Les œuvres
+          </span>
+          <h2 className="font-cormorant font-light text-[28px] text-brun mb-10">
+            Galerie
+          </h2>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {galleryItems.map((item) => (
+              <div key={item.id} className="flex flex-col items-center">
+                <div className="w-full aspect-square bg-placeholder border-[0.5px] border-or flex items-center justify-center relative overflow-hidden">
+                  {item.image ? (
+                    <Image
+                      src={item.image}
+                      alt={item.label}
+                      fill
+                      className="object-cover"
+                    />
+                  ) : (
+                    <span className="text-or-moyen text-xs small-caps">
+                      Image
+                    </span>
+                  )}
+                </div>
+                <span className="small-caps text-brun-lien text-xs tracking-wide mt-3">
+                  {item.label}
+                </span>
+              </div>
+            ))}
+          </div>
+
+          <div className="flex justify-center mt-12">
+            <Link
+              href="/creations"
+              className="small-caps text-or-moyen text-xs tracking-[0.14em] border-[0.5px] border-or px-6 py-2.5 transition-colors hover:bg-or hover:text-parchemin"
+            >
+              Voir toutes les créations
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Contact CTA ── */}
+      <section className="bg-brun py-16 md:py-20 px-6 text-center">
+        <h2 className="font-cormorant font-light text-[28px] text-footer-text mb-3">
+          Entrer en contact
+        </h2>
+        <p className="text-or text-sm mb-8">
+          Pour une commande, une question ou une œuvre sur mesure
+        </p>
+        <Link
+          href="/contact"
+          className="small-caps text-or text-xs tracking-[0.14em] border-[0.5px] border-or px-6 py-2.5 transition-colors hover:bg-or hover:text-brun"
         >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+          Écrire à GNM
+        </Link>
+      </section>
+    </>
   );
 }
