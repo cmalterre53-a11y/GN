@@ -18,16 +18,6 @@ export default function Home() {
           La Galerie
         </span>
 
-        {/* Bloc texte */}
-        <h3 className="font-cormorant font-light text-lg tracking-[0.15em] text-brun mt-10 mb-4">
-          Œuvres uniques signées GNM
-        </h3>
-        <p className="font-eb text-sm leading-[1.9] text-brun-clair text-center max-w-[480px]">
-          Chaque pot est une œuvre d&rsquo;art à part entière. Peints à la main
-          sur terre cuite, sans calque ni reproduction, ils sont par essence
-          uniques au monde — comme l&rsquo;est chaque personne qui les possède.
-        </p>
-
         {/* Image d'accueil */}
         <div className="relative mt-10 mb-10 w-52 md:w-60">
           <Image
@@ -40,8 +30,18 @@ export default function Home() {
           />
         </div>
 
+        {/* Bloc texte */}
+        <h3 className="font-cormorant font-light text-lg tracking-[0.15em] text-brun mb-4">
+          Œuvres uniques signées GNM
+        </h3>
+        <p className="font-eb text-sm leading-[1.9] text-brun-clair text-center max-w-[480px]">
+          Chaque pot est une œuvre d&rsquo;art à part entière. Peints à la main
+          sur terre cuite, sans calque ni reproduction, ils sont par essence
+          uniques au monde — comme l&rsquo;est chaque personne qui les possède.
+        </p>
+
         {/* Citation */}
-        <blockquote className="max-w-lg text-center font-cormorant italic text-brun-clair text-lg leading-relaxed">
+        <blockquote className="max-w-lg text-center font-cormorant italic text-brun-clair text-lg leading-relaxed mt-8">
           «&nbsp;L&rsquo;art est une âme offerte au regard de l&rsquo;autre, sa
           vérité naît dans l&rsquo;émotion qu&rsquo;il éveille.&nbsp;»
         </blockquote>
