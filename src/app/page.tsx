@@ -18,6 +18,16 @@ export default function Home() {
           La Galerie
         </span>
 
+        {/* Bloc texte */}
+        <h3 className="font-cormorant font-light text-lg tracking-[0.15em] text-brun mt-10 mb-4">
+          Œuvres uniques signées GNM
+        </h3>
+        <p className="font-eb text-sm leading-[1.9] text-brun-clair text-center max-w-[480px]">
+          Chaque pot est une œuvre d&rsquo;art à part entière. Peints à la main
+          sur terre cuite, sans calque ni reproduction, ils sont par essence
+          uniques au monde — comme l&rsquo;est chaque personne qui les possède.
+        </p>
+
         {/* Image d'accueil */}
         <div className="relative mt-10 mb-10 w-52 md:w-60">
           <Image
@@ -36,14 +46,9 @@ export default function Home() {
           vérité naît dans l&rsquo;émotion qu&rsquo;il éveille.&nbsp;»
         </blockquote>
 
-        {/* Bloc texte */}
-        <h3 className="font-cormorant font-light text-lg tracking-[0.15em] text-brun mt-10 mb-4">
+        {/* Tagline */}
+        <p className="small-caps text-or-moyen text-xs tracking-[0.18em] mt-6">
           Œuvres uniques signées GNM
-        </h3>
-        <p className="font-eb text-sm leading-[1.9] text-brun-clair text-center max-w-[480px]">
-          Chaque pot est une œuvre d&rsquo;art à part entière. Peints à la main
-          sur terre cuite, sans calque ni reproduction, ils sont par essence
-          uniques au monde — comme l&rsquo;est chaque personne qui les possède.
         </p>
       </section>
 
@@ -100,23 +105,23 @@ export default function Home() {
               <Link
                 key={item.id}
                 href={`/creations/${item.id}`}
-                className="flex flex-col items-center group"
+                className="flex flex-col items-center group transition-transform duration-[250ms] ease-out hover:-translate-y-1 hover:shadow-[0_8px_24px_rgba(61,32,8,0.15)]"
               >
-                <div className="w-full aspect-square bg-placeholder border-[0.5px] border-or flex items-center justify-center relative overflow-hidden transition-opacity group-hover:opacity-90">
+                <div className="w-full aspect-square bg-placeholder border-[0.5px] border-or relative overflow-hidden">
                   {item.image ? (
                     <Image
                       src={item.image}
                       alt={item.number}
                       fill
-                      className="object-cover"
+                      className="object-cover transition-transform duration-[350ms] ease-out group-hover:scale-105"
                     />
                   ) : (
-                    <span className="text-or-moyen text-xs small-caps">
+                    <span className="text-or-moyen text-xs small-caps flex items-center justify-center h-full">
                       Image
                     </span>
                   )}
                 </div>
-                <span className="small-caps text-brun-lien text-xs tracking-wide mt-3 group-hover:text-or-moyen transition-colors">
+                <span className="small-caps text-brun-lien text-xs tracking-wide mt-3 group-hover:text-or transition-colors duration-200">
                   {item.number}
                 </span>
               </Link>
@@ -126,7 +131,7 @@ export default function Home() {
           <div className="flex justify-center mt-12">
             <Link
               href="/creations"
-              className="small-caps text-or-moyen text-xs tracking-[0.14em] border-[0.5px] border-or px-6 py-2.5 transition-colors hover:bg-or hover:text-parchemin"
+              className="small-caps text-or-moyen text-xs tracking-[0.14em] border-[0.5px] border-or px-6 py-2.5 transition-all duration-200 hover:bg-or hover:text-parchemin hover:-translate-y-0.5 hover:shadow-[0_4px_12px_rgba(196,150,74,0.3)]"
             >
               Voir toutes les créations
             </Link>
@@ -144,7 +149,7 @@ export default function Home() {
         </p>
         <Link
           href="/contact"
-          className="small-caps text-or text-xs tracking-[0.14em] border-[0.5px] border-or px-6 py-2.5 transition-colors hover:bg-or hover:text-brun"
+          className="small-caps text-or text-xs tracking-[0.14em] border-[0.5px] border-or px-6 py-2.5 transition-all duration-200 hover:bg-or hover:text-brun hover:-translate-y-0.5 hover:shadow-[0_4px_12px_rgba(196,150,74,0.3)]"
         >
           Écrire à GNM
         </Link>

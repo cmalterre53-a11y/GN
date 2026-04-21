@@ -68,7 +68,7 @@ export default function ContactPage() {
 
           <button
             type="submit"
-            className="mt-2 bg-brun text-footer-text font-eb text-sm small-caps tracking-[0.14em] px-6 py-2.5 transition-colors hover:bg-footer"
+            className="mt-2 bg-brun text-footer-text font-eb text-sm small-caps tracking-[0.14em] px-6 py-2.5 transition-all duration-200 hover:bg-footer hover:-translate-y-0.5 hover:shadow-[0_4px_12px_rgba(196,150,74,0.3)]"
           >
             Envoyer
           </button>

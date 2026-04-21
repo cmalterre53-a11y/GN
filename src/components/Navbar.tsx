@@ -16,7 +16,7 @@ export default function Navbar() {
     <nav className="sticky top-0 z-50 flex items-center justify-between h-14 px-6 md:px-12 bg-nav border-b border-or">
       <Link
         href="/"
-        className="font-cormorant font-light text-xl tracking-[0.12em] text-brun"
+        className="font-cormorant font-light text-xl tracking-[0.12em] text-brun transition-colors duration-200 hover:text-or"
       >
         La Galerie GNM
       </Link>
@@ -26,7 +26,7 @@ export default function Navbar() {
           <li key={link.href}>
             <Link
               href={link.href}
-              className={`small-caps text-sm tracking-wide transition-colors hover:text-or-moyen ${
+              className={`small-caps text-sm tracking-wide transition-colors duration-200 hover:text-or ${
                 pathname === link.href
                   ? "text-or-moyen"
                   : "text-brun-lien"

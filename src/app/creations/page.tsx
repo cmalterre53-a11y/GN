@@ -29,26 +29,26 @@ export default function CreationsPage() {
             <Link
               key={work.id}
               href={`/creations/${work.id}`}
-              className="flex flex-col items-center group"
+              className="flex flex-col items-center group transition-transform duration-[250ms] ease-out hover:-translate-y-1 hover:shadow-[0_8px_24px_rgba(61,32,8,0.15)]"
             >
-              <div className="w-full aspect-[3/4] bg-placeholder border-[0.5px] border-or flex items-center justify-center relative overflow-hidden transition-opacity group-hover:opacity-90">
+              <div className="w-full aspect-[3/4] bg-placeholder border-[0.5px] border-or relative overflow-hidden">
                 {work.image ? (
                   <Image
                     src={work.image}
                     alt={work.title}
                     fill
-                    className="object-cover"
+                    className="object-cover transition-transform duration-[350ms] ease-out group-hover:scale-105"
                   />
                 ) : (
-                  <span className="text-or-moyen text-xs small-caps">
+                  <span className="text-or-moyen text-xs small-caps flex items-center justify-center h-full">
                     Image
                   </span>
                 )}
               </div>
-              <span className="font-cormorant text-brun text-base mt-3 group-hover:text-or-moyen transition-colors">
+              <span className="font-cormorant text-brun text-base mt-3 group-hover:text-or transition-colors duration-200">
                 {work.title}
               </span>
-              <span className="small-caps text-brun-lien text-xs tracking-wide">
+              <span className="small-caps text-brun-lien text-xs tracking-wide group-hover:text-or transition-colors duration-200">
                 {work.number}
               </span>
             </Link>

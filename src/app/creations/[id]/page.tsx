@@ -77,7 +77,7 @@ export default function WorkPage({ params }: Props) {
 
             <Link
               href="/creations"
-              className="small-caps text-brun-lien text-xs tracking-wide hover:text-or-moyen transition-colors"
+              className="small-caps text-brun-lien text-xs tracking-wide hover:text-or transition-colors duration-200"
             >
               ← Retour à la galerie
             </Link>
